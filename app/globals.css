@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #09090b;
+    --foreground: #fafafa;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e4e4e7;
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Selection */
+::selection {
+  background: rgba(245, 158, 11, 0.2);
+  color: #d97706;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes gold-sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-vibe-bg {
+  background: linear-gradient(
+    90deg, 
+    #000000 0%, 
+    #09090b 25%, 
+    #1c1917 50%, 
+    #09090b 75%, 
+    #000000 100%
+  );
+  background-size: 200% 100%;
+  animation: gold-sweep 12s linear infinite;
+}
+
+.dark .gold-vibe-bg {
+  background: linear-gradient(
+    90deg, 
+    #000000 0%, 
+    #09090b 25%, 
+    #2d2412 50%, 
+    #09090b 75%, 
+    #000000 100%
+  );
+  background-size: 200% 100%;
+  animation: gold-sweep 12s linear infinite;
+}
+
+@keyframes light-gold-sweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.light-gold-vibe-bg {
+  background: linear-gradient(
+    -45deg, 
+    #ffffff, 
+    #fef9c3, 
+    #fde047, 
+    #fef9c3
+  );
+  background-size: 400% 400%;
+  animation: light-gold-sweep 15s ease infinite;
+}
+
+.dark .light-gold-vibe-bg {
+  background: linear-gradient(
+    -45deg, 
+    #09090b, 
+    #1c1917, 
+    #422006, 
+    #1c1917
+  );
+  background-size: 400% 400%;
+  animation: light-gold-sweep 15s ease infinite;
+}
